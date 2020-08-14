@@ -3,11 +3,23 @@ Input: a List of integers
 Returns: a List of integers
 '''
 def moving_zeroes(arr):
-    for key, value in enumerate(arr):
-        if value == 0:
-            arr.append(value)
-            arr.pop(key)
-    return arr
+    
+    return [x for x in arr if x != 0] + [0] * arr.count(0)
+    
+    
+    
+    # ? The following returned an error from the test 
+    # ? on line 56 of test_moving_zeroes.py
+    # ? 
+    # ? It only sorted 2 of the zeroes to
+    # ? the end of the returned list, two other zeroes
+    # ? were left at the beginning
+    
+    # for key, value in enumerate(arr):
+    #     if value == 0:
+    #         arr.append(value)
+    #         arr.pop(key)
+    # return arr
 
 
 if __name__ == '__main__':
