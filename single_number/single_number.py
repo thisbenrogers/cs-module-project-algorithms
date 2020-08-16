@@ -3,9 +3,28 @@ Input: a List of integers where every int except one shows up twice
 Returns: an integer
 '''
 def single_number(arr):
-    # Your code here
+    # sort list in-place
+    # compare each value to the next, removing duplicates
+    # return any remaining integer,
+ 
+    arr.sort()
+    i = 0
+    prev = None
+    while i < len(arr):
+        item = arr[i]
+        if item == prev:
+            arr.pop(i)
+            arr.pop(i - 1)
+            i -= 1
+        else:
+            i += 1
+        if i:
+            prev = arr[i - 1]
+        else:
+            prev = None
+    return arr[0]
 
-    pass
+
 
 
 if __name__ == '__main__':
